@@ -29,6 +29,8 @@ class DPIConfig:
     ito_method: str = "finite_diff"  # "finite_diff" or "autodiff"
     fd_step_size: float = 5e-2
     fd_stencil: str = "nine"  # "three", "five", "seven", "nine"
+    vectorized: bool = True  # Use batched shock evaluation
+    chunk_size: Optional[int] = None  # Chunk size for memory management (None = no chunking)
 
 
 @dataclass

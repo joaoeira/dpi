@@ -37,6 +37,8 @@ def policy_improvement_step(
     ito_method: str = "finite_diff",
     fd_step_size: float = 5e-2,
     fd_stencil: str = "three",
+    vectorized: bool = True,
+    chunk_size: Optional[int] = None,
 ) -> Optional[float]:
     """One policy improvement step maximizing the HJB residual."""
     if policy_net is None:
@@ -56,6 +58,8 @@ def policy_improvement_step(
             ito_method=ito_method,
             h=fd_step_size,
             stencil=fd_stencil,
+            vectorized=vectorized,
+            chunk_size=chunk_size,
         )
         loss = -hjb.mean()
     loss.backward()

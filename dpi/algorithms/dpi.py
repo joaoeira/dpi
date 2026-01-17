@@ -74,6 +74,8 @@ class DPITrainer:
                         ito_method=self.config.ito_method,
                         fd_step_size=self.config.fd_step_size,
                         fd_stencil=self.config.fd_stencil,
+                        vectorized=self.config.vectorized,
+                        chunk_size=self.config.chunk_size,
                     )
 
             value_loss = None
@@ -89,6 +91,8 @@ class DPITrainer:
                     ito_method=self.config.ito_method,
                     fd_step_size=self.config.fd_step_size,
                     fd_stencil=self.config.fd_stencil,
+                    vectorized=self.config.vectorized,
+                    chunk_size=self.config.chunk_size,
                 )
 
             history.value_loss.append(value_loss)
